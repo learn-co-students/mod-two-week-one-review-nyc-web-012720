@@ -1,28 +1,37 @@
-<%= form_for @sea do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<div class="container">
 
-  <%= f.label :temperature %>
-  <%= f.number_field :temperature %>
 
-  <%= f.label :bio %>
-  <%= f.text_area :bio %>
+<%= form_tag seas_path do %>
+  <label>Name:</label><br>
+  <input type="text" id="name" name="sea[name]"><br>
 
-  <%= f.label :image_url %>
-  <%= f.text_field :image_url %>
+  <label>Bio:</label><br>
+  <input type="text" id="bio" name="sea[bio]"><br>
 
-  <%= f.label :mood %>
-  <%= f.text_field :mood %>
+  <label>Image URL:</label><br>
+  <input type="text" id="image_url" name="sea[image_url]"><br>
 
-  <%= f.label :favorite_color %>
-  <%= f.text_field :favorite_color %>
+  <label>Temperature:</label><br>
+  <input type="text" id="temperature" name="sea[temperature]"><br>
 
-  <%= f.label :scariest_creature %>
-  <%= f.text_field :scariest_creature %>
+  <label>Favorite Color:</label><br>
+  <input type="text" id="favorite_color" name="sea[favorite_color]"><br>
 
-  <%= f.label :has_mermaids %>
-  <%= f.check_box :has_mermaids %>
+  <label>Scariest Creature:</label><br>
+  <input type="text" id="scariest_creature" name="sea[scariest_creature]"><br>
 
-  <%=  f.submit %>
+  <label>Mood:</label><br>
+  <input type="text" id="mood" name="sea[mood]"><br>
 
-  <% end %>
+  <label>Has Mermaids</label><br>
+  <input type="checkbox" id="has_mermaids" name="has_mermaids">
+ 
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="submit" value="Submit Post">
+<% end %>
+
+
+  <div class="text-center">
+    <button class="btn btn-info" style="margin: 1em"><a class="btn-info" href="/sea">All Seas</a></button>
+  </div>
+</div>
