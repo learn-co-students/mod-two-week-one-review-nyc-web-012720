@@ -1,28 +1,51 @@
-<%= form_for @sea do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
 
-  <%= f.label :temperature %>
-  <%= f.number_field :temperature %>
+<div class="container">
+<%= form_tag seas_path do %>
+  <label>Name:</label><br>
+  <input type="text" id="name" name="sea[name]"><br>
 
-  <%= f.label :bio %>
-  <%= f.text_area :bio %>
+  <label>Bio:</label><br>
+  <input type="text" id="bio" name="sea[bio]"><br>
 
-  <%= f.label :image_url %>
-  <%= f.text_field :image_url %>
+  <label>Image URL:</label><br>
+  <input type="text" id="image_url" name="sea[image_url]"><br>
 
-  <%= f.label :mood %>
-  <%= f.text_field :mood %>
+  <label>Temperature:</label><br>
+  <input type="text" id="temperature" name="sea[temperature]"><br>
 
-  <%= f.label :favorite_color %>
-  <%= f.text_field :favorite_color %>
+  <label>Favorite Color:</label><br>
+  <input type="text" id="favorite_color" name="sea[favorite_color]"><br>
 
-  <%= f.label :scariest_creature %>
-  <%= f.text_field :scariest_creature %>
+  <label>Scariest Creature:</label><br>
+  <input type="text" id="scariest_creature" name="sea[scariest_creature]"><br>
 
-  <%= f.label :has_mermaids %>
-  <%= f.check_box :has_mermaids %>
+  <label>Mood:</label><br>
+  <input type="text" id="mood" name="sea[mood]"><br>
 
-  <%=  f.submit %>
+  <label>Has Mermaids</label><br>
+  <input type="checkbox" id="has_mermaids" name="has_mermaids">
+ 
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="submit" value="Submit Post">
+<% end %>
 
-  <% end %>
+  <div class="text-center row" style="margin: 1em">
+    <div class="col-sm-1">
+      <button class="btn btn-info" style="margin: 0 auto"><a href="/seas/<%=@sea.id%>">Back</a></button>
+    </div>
+    <div class="col-sm-1">
+    <button class="btn btn-info" style="margin: 0 auto"><a class="btn-info" href="/seas">All Seas</a></button>
+    </div>
+    <div class="col-sm-9">
+    </div>
+    <div class="col-sm-1">
+
+    <form action="/seas/<%=@sea.id%>" method="POST" style="margin: 0 auto">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="hidden" name="_method" value="DELETE" />
+        <input class="btn btn-danger" type="submit" value="Delete"/>
+    </form>
+
+    </div>
+  </div>
+</div>
