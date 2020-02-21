@@ -31,6 +31,8 @@ class SeasController < ApplicationController
   def destroy
     @sea = Sea.find(params[:id])
     @sea.destroy
+
+    redirect_to_action: "index"
   end
 
 
